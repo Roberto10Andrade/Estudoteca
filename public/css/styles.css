@@ -1,0 +1,193 @@
+/* Global Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #FCFAEE; /* Fundo bege claro */
+    color: #384B70; /* Texto azul escuro */
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    color: #384B70; /* Azul escuro para títulos */
+}
+
+/* Navbar Styles */
+#navbar {
+    background-color: #507687; /* Azul médio para o fundo da navbar */
+    padding: 1.2em;
+    border-bottom: 2px solid #384B70;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#navbar ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    gap: 2em;
+}
+
+#navbar ul li a {
+    color: #FCFAEE; /* Texto branco no navbar */
+    padding: 0.6em 1.2em;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    transition: 0.4s;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#navbar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Main Container */
+.conteiner {
+    background-color: #FCFAEE; /* Fundo bege claro para o conteúdo */
+    padding: 2em;
+    margin: 2em auto;
+    border-radius: 20px;
+    max-width: 90%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Button Styles */
+.btn, .remove {
+    background-color: #B8001F; /* Vermelho intenso para os botões */
+    color: #FCFAEE; /* Texto branco nos botões */
+    padding: 0.8em 1.5em;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 8px 20px rgba(184, 0, 31, 0.3); /* Sombra vermelha */
+    transition: all 0.3s ease;
+    margin: em;
+}
+
+.btn:hover {
+    background-color: #507687; /* Azul médio nos botões ao passar o mouse */
+    box-shadow: 0 12px 30px rgba(80, 118, 135, 0.4);
+}
+
+.remove {
+    background-color: #B8001F; /* Vermelho intenso */
+}
+
+.remove:hover {
+    background-color: #507687; /* Azul médio no hover */
+    box-shadow: 0 12px 30px rgba(80, 118, 135, 0.4);
+}
+
+/* Message Container */
+.message-conteiner {
+    padding: 1.2em;
+    background-color: #507687; /* Azul médio para a mensagem */
+    color: #FCFAEE; /* Texto branco */
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 70%;
+    margin: 2em auto;
+    transform: rotate(-2deg);
+    transition: transform 0.3s;
+}
+
+.message-conteiner:hover {
+    transform: rotate(2deg);
+}
+
+/* Forms and Input */
+input, textarea {
+    border: 2px solid #B8001F; /* Vermelho intenso para as bordas dos inputs */
+    border-radius: 10px;
+    padding: 0.8em;
+    margin: 1em 0;
+    width: 100%;
+    max-width: 400px;
+    font-size: 16px;
+    background-color: #FCFAEE; /* Fundo bege claro */
+}
+
+input:focus, textarea:focus {
+    border-color: #507687; /* Azul médio no foco */
+    box-shadow: 0 4px 12px rgba(80, 118, 135, 0.3);
+    outline: none;
+}
+
+/* Home Header */
+.home-header {
+    max-width: 60%;
+    margin: 2em auto;
+    text-align: center;
+    color: #384B70; /* Azul escuro */
+}
+
+.home-header h1 {
+    font-size: 3em;
+    color: #B8001F; /* Título vermelho intenso */
+    letter-spacing: 2px;
+}
+
+.home-header h1 span {
+    color: #507687; /* Azul médio para os spans */
+}
+
+.home-header p {
+    font-size: 1.2em;
+    color: #507687; /* Azul médio para os parágrafos */
+}
+
+/* Footer */
+footer {
+    margin-top: 5em;
+    background-color: #507687; /* Azul médio no rodapé */
+    color: #FCFAEE; /* Texto branco */
+    text-align: center;
+    padding: 1.2em 0;
+    border-radius: 15px 15px 0 0;
+    font-size: 14px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #navbar ul {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .conteiner {
+        width: 95%;
+    }
+
+    .home-header h1 {
+        font-size: 2em;
+    }
+    
+}
