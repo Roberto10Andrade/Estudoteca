@@ -10,10 +10,10 @@
 <body>
     <nav id="navbar">
         <ul>
-            <li><a href="/">Books</a></li>
+            <li><a href="/">Livros</a></li>
             {{#if session.userid}}
                 {{#if session.admin}}
-                    <li><a href="/books/userbooks">Add Livros</a></li>
+                    <li><a href="/books/userbooks">Adicionar Livros</a></li>
                 {{else}}
                     <li><a href="/books/cart">Carrinho</a></li>    
                 {{/if}}
