@@ -19,14 +19,14 @@ module.exports = class authController {
         }
 
         if (password != confirmpassword) {
-            req.flash("message", "As senha não conferem")
+            req.flash("message", "As senha não são iguais")
             res.render("auth/register")
             return
         }
 
         const alreadyExist = await User.findOne({where: { email : email }})
         if (alreadyExist) {
-            req.flash("message", "O usuario ja existe!")
+            req.flash("message", "Usuário já cadastrado!")
             res.render("auth/register")
 
             return
@@ -41,13 +41,13 @@ module.exports = class authController {
             const CreatedUser = await User.create({name, email, password:hash, admin})
             req.session.userid = CreatedUser.id
             req.session.admin = admin
-            req.flash("message", "Usuario criado com sucesso!")
+            req.flash("message", "Usuário criado com sucesso!")
 
             req.session.save(() => {
                 res.redirect("/books")
             })
         } catch (err) {
-            console.log("ocorreu um erro ao criar o Usuario: ", err)
+            console.log("Ocorreu um erro ao criar o Usuário: ", err)
         }
     }
     static async loginPost(req, res) {
@@ -56,7 +56,7 @@ module.exports = class authController {
         const user = await User.findOne({where: {email:email}})
 
         if (!user) {
-            req.flash("message", "O usuarioa não existe")
+            req.flash("message", "O usuário não existe")
             res.render("auth/login")
 
             return
@@ -64,7 +64,7 @@ module.exports = class authController {
 
         const matchPassword = bcrypt.compareSync(password, user.password)
         if (!matchPassword){
-            req.flash("message", "senha incorreta!")
+            req.flash("message", "Senha incorreta!")
             res.render("auth/login")
             return
         }
@@ -72,13 +72,13 @@ module.exports = class authController {
         try {
             req.session.userid = user.id
             req.session.admin = user.admin
-            req.flash("message", "Conectou ao usuario!")
+            req.flash("message", "Usuário conectado com sucesso!")
 
             req.session.save(() => {
                 res.redirect("/books")
             })
         } catch(err) {
-            console.log("erro ao logar o usuario: ", err)
+            console.log("Erro ao logar o usuário: ", err)
         }
     }
     static async logout(req, res) {
